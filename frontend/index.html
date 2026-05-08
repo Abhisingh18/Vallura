@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valura AI | Premium AI Co-Investor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar left-sidebar">
+            <div class="brand">
+                <div class="logo">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Valura AI</h1>
+                    <span>AI Co-Investor</span>
+                </div>
+            </div>
+
+            <div class="user-profile">
+                <div class="profile-card">
+                    <div class="avatar">AS</div>
+                    <div class="profile-info">
+                        <h3>Abhishek Singh</h3>
+                        <p>Standard Investor</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <label>PORTFOLIO SUMMARY</label>
+                    <div class="metric-card">
+                        <span class="label">Total Value</span>
+                        <span class="value" id="sidebar-total-value">$0.00</span>
+                        <span class="change positive" id="sidebar-total-change">0% <i data-lucide="trending-up"></i></span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="label">Risk Profile</span>
+                        <span class="value risk-moderate" id="sidebar-risk-profile">Moderate</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="label">Diversification</span>
+                        <div class="score-bar">
+                            <div class="score-fill" id="sidebar-diversification-bar" style="width: 0%;"></div>
+                        </div>
+                        <span class="score-text" id="sidebar-diversification-score">0/100</span>
+                    </div>
+                    <div class="last-updated" id="last-updated-container">
+                        <span class="dot pulse"></span>
+                        <span id="last-updated-text">Syncing...</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <label>TOP HOLDINGS</label>
+                    <div id="sidebar-top-holdings">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="settings-btn">
+                    <i data-lucide="settings"></i> Settings
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="greeting">
+                    <h2>Welcome back, Abhishek</h2>
+                    <p>Your AI co-investor for smarter long-term investing</p>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+                    <button class="primary-btn" id="analyze-btn">
+                        <i data-lucide="bar-chart-3"></i> Analyze Portfolio
+                    </button>
+                </div>
+            </header>
+
+            <div class="hero-image-container">
+                <img src="assets/hero.png" alt="Valura AI" class="hero-image">
+            </div>
+
+            <div class="chat-container" id="chat-window">
+                <div class="chat-welcome" id="welcome-msg">
+                    <div class="welcome-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>How can I help you today?</h3>
+                    <p>Ask about your portfolio health, market trends, or investment strategies.</p>
+                    <div class="suggested-prompts">
+                        <button class="prompt-chip">Analyze my diversification</button>
+                        <button class="prompt-chip">How is my portfolio doing?</button>
+                        <button class="prompt-chip">Show concentration risk</button>
+                    </div>
+                </div>
+                <!-- Messages will be injected here -->
+            </div>
+
+            <div class="status-pipeline" id="status-bar" style="display: none;">
+                <div class="status-item" id="status-safety">
+                    <div class="spinner"></div>
+                    <span>Safety Check</span>
+                </div>
+                <div class="status-item" id="status-intent">
+                    <div class="spinner"></div>
+                    <span>Intent Classification</span>
+                </div>
+                <div class="status-item" id="status-agent">
+                    <div class="spinner"></div>
+                    <span>Portfolio Analysis</span>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <input type="text" id="chat-input" placeholder="Ask about your portfolio, diversification, or investments..." autocomplete="off">
+                    <button class="send-btn" id="send-btn">
+                        <i data-lucide="send"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="sidebar right-sidebar">
+            <div class="sidebar-section">
+                <label>HEALTH INSIGHTS</label>
+                
+                <div class="insight-card concentration-card">
+                    <div class="card-header">
+                        <i data-lucide="alert-triangle"></i>
+                        <span>Concentration Risk</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="risk-meter">
+                            <div class="risk-fill risk-low" id="concentration-bar" style="width: 25%;"></div>
+                        </div>
+                        <div class="risk-info">
+                            <span class="risk-value" id="top-holding-pct">8.4%</span>
+                            <span class="risk-status" id="concentration-status">Low Risk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-card benchmark-card">
+                    <div class="card-header">
+                        <i data-lucide="line-chart"></i>
+                        <span>vs. Benchmark</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="benchmark-comparison">
+                            <div class="bench-item">
+                                <span class="label">Portfolio</span>
+                                <span class="val positive" id="perf-portfolio">+18.4%</span>
+                            </div>
+                            <div class="bench-item">
+                                <span class="label">S&P 500</span>
+                                <span class="val" id="perf-benchmark">+14.2%</span>
+                            </div>
+                        </div>
+                        <div class="alpha-badge">
+                            Alpha: <span id="perf-alpha">+4.2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insight-card actionable-insights">
+                    <div class="card-header">
+                        <i data-lucide="zap"></i>
+                        <span>Action Items</span>
+                    </div>
+                    <ul class="insight-list" id="action-items">
+                        <li>Maintain current bond split</li>
+                        <li>Review tech exposure in Q4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="market-status">
+                <div class="status-indicator online"></div>
+                <span>Market Data Live</span>
+            </div>
+            <div class="footer-status">
+                <span class="status-dot green"></span>
+                <span>Market Data Live</span>
+            </div>
+        </aside>
+    </div>
+
+    <script src="/app.js?v=2"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

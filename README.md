@@ -4,7 +4,7 @@ Valura AI is a high-performance, real-time financial intelligence platform desig
 
 ## 🚀 Production-Grade Features
 
-### 1. Zero-Hardcode Real-Time Data
+### 1. Zero Hardcode Real-Time Data
 The system has been upgraded to eliminate all static financial data. All metrics are dynamically derived from live market conditions:
 - **Market Data Service**: Integrates with `yfinance` to fetch real-time prices, historical returns, and sector information.
 - **Dynamic Benchmarking**: Portfolio performance is calculated against live `SPY` (S&P 500) data to compute real-time Alpha.

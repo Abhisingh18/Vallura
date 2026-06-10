@@ -1,4 +1,4 @@
-# Valura AI — Production-Grade Financial Assistant
+# Valura AI — Production-Grade Financial Assistant....
 
 Valura AI is a high-performance, real-time financial intelligence platform designed for reliability, deterministic accuracy, and resilient market reactivity.
 
